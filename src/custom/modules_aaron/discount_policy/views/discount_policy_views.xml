@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form View -->
+        <record id="view_discount_policy_form" model="ir.ui.view">
+            <field name="name">discount.policy.form</field>
+            <field name="model">discount.policy</field>
+            <field name="arch" type="xml">
+                <form string="Discount Policy">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Nombre de la Política"/>
+                            <h1>
+                                <field name="name" placeholder="Ej. Descuento por Volumen + VIP"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Reglas de Descuento">
+                                <field name="rule_ids">
+                                    <tree editable="bottom">
+                                        <field name="client_type_id"/>
+                                        <field name="product_id"/>
+                                        <field name="category_id"/>
+                                        <field name="min_quantity"/>
+                                        <field name="discount_percentage"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group string="Criterios">
+                                                <field name="client_type_id"/>
+                                                <field name="min_quantity"/>
+                                            </group>
+                                            <group string="Aplicable A">
+                                                <field name="product_id"/>
+                                                <field name="category_id"/>
+                                            </group>
+                                        </group>
+                                        <group string="Beneficio">
+                                            <field name="discount_percentage"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="view_discount_policy_tree" model="ir.ui.view">
+            <field name="name">discount.policy.tree</field>
+            <field name="model">discount.policy</field>
+            <field name="arch" type="xml">
+                <tree string="Discount Policy">
+                    <field name="name"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_discount_policy" model="ir.actions.act_window">
+            <field name="name">Políticas de Descuento</field>
+            <field name="res_model">discount.policy</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Definir una nueva política de descuento
+              </p>
+            </field>
+        </record>
+
+        <!-- Menu Item -->
+        <menuitem id="menu_discount_policy_root" 
+                  name="Políticas de Descuento" 
+                  parent="sale.sale_menu_root" 
+                  sequence="30"/>
+                  
+        <menuitem id="menu_discount_policy_action" 
+                  name="Políticas" 
+                  parent="menu_discount_policy_root" 
+                  action="action_discount_policy" 
+                  sequence="10"/>
+
+        <!-- Menu in Accounting/Configuration -->
+        <menuitem id="menu_discount_policy_account_config"
+                  name="Políticas de Descuento"
+                  parent="account.menu_finance_configuration"
+                  action="action_discount_policy"
+                  sequence="30"/>
+    </data>
+</odoo>

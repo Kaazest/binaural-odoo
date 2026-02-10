@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- FORM VIEW -->
+        <record id="client_type_form" model="ir.ui.view">
+            <field name="name">res.client.type.form</field>
+            <field name="model">res.client.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="description" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="client_type_tree" model="ir.ui.view">
+            <field name="name">res.client.type.tree</field>
+            <field name="model">res.client.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="description" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="action_client_type" model="ir.actions.act_window">
+            <field name="name">Tipos de Cliente</field>
+            <field name="res_model">res.client.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crear nuevo tipo de Cliente
+              </p>
+            </field>
+        </record>
+
+        <!-- MENUITEM -->
+        <menuitem id="menu_client_type"
+                  name="Tipos de Cliente"
+                  parent="menu_discount_policy_root"
+                  action="action_client_type"
+                  sequence="20"/>
+
+    </data>
+</odoo>

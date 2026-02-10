@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Tipos de Cliente Predefinidos -->
+        <record id="client_type_retail" model="res.client.type">
+            <field name="name">Minorista</field>
+            <field name="description">Cliente individual o de consumo final.</field>
+        </record>
+
+        <record id="client_type_wholesale" model="res.client.type">
+            <field name="name">Mayorista</field>
+            <field name="description">Cliente que compra en grandes volúmenes.</field>
+        </record>
+
+        <record id="client_type_vip" model="res.client.type">
+            <field name="name">VIP</field>
+            <field name="description">Cliente preferencial con trato especial.</field>
+        </record>
+    </data>
+</odoo>

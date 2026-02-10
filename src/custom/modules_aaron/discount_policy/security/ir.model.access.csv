@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_discount_policy,discount.policy user access,model_discount_policy,base.group_user,1,1,1,1
+access_res_client_type,res.client.type user access,model_res_client_type,base.group_user,1,1,1,1
+access_discount_policy_rule,discount.policy.rule user access,model_discount_policy_rule,base.group_user,1,1,1,1
